@@ -17,10 +17,18 @@ function authFetch(url, options = {}) {
         headers: {
             'Authorization': `Bearer ${token}`,
             'Accept': 'application/json',
-            'Content-Type': 'application/json',
             ...(options.headers || {}),
         },
     });
+    if (!(options.body instanceof FormData)) {
+        headers['Content-Type'] = 'application/json';
+    }
+
+    return fetch(url, {
+        ...options,
+        headers,
+    });
+
 }
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -28,9 +36,12 @@ document.addEventListener('DOMContentLoaded', () => {
     loadBookings();
     loadServices();
     loadCustomers();
+    loadCoupons();
+    loadReviewsStats();
 
     document.getElementById('statusFilter').addEventListener('change', loadBookings);
     document.getElementById('addServiceBtn').addEventListener('click', addService);
+    document.getElementById('addCouponBtn').addEventListener('click', addCoupon);
     document.getElementById('logoutBtn').addEventListener('click', logout);
 });
 
@@ -260,7 +271,6 @@ function renderServices(services) {
             <td>${service.id}</td>
             <td>${service.name}</td>
             <td>${service.description || '-'}</td>
-            <td>${service.price ? service.price + ' ل.س' : 'غير محدد'}</td>
             <td>
                 <div class="service-row-actions">
                     <button class="small-btn delete" data-id="${service.id}">حذف</button>
@@ -278,21 +288,31 @@ function renderServices(services) {
 }
 
 function addService() {
-    const data = {
-        name: document.getElementById('newServiceName').value,
-        description: document.getElementById('newServiceDesc').value || null,
-        image: document.getElementById('newServiceImage').value || null,
-        price: document.getElementById('newServicePrice').value || null,
-    };
+    const nameInput = document.getElementById('newServiceName');
+    const descInput = document.getElementById('newServiceDesc');
+    const imageInput = document.getElementById('newServiceImage');
 
-    if (!data.name) {
+    if (!nameInput.value.trim()) {
         alert('الرجاء إدخال اسم الخدمة');
         return;
     }
 
+    // إنشاء كائن FormData لإرسال الملف والبيانات النصية معا
+    const formData = new FormData();
+    formData.append('name', nameInput.value.trim());
+    
+    if (descInput.value.trim()) {
+        formData.append('description', descInput.value.trim());
+    }
+
+    // التحقق من وجود صورة مختارة من الجهاز وأرفاقها
+    if (imageInput.files && imageInput.files[0]) {
+        formData.append('image', imageInput.files[0]);
+    }
+
     authFetch(`${API_BASE_URL}/admin/services`, {
         method: 'POST',
-        body: JSON.stringify(data),
+        body: formData, // نرسل الـ formData مباشرة دون استخدام JSON.stringify
     })
         .then(async res => {
             const result = await res.json();
@@ -300,10 +320,9 @@ function addService() {
             return result;
         })
         .then(() => {
-            document.getElementById('newServiceName').value = '';
-            document.getElementById('newServiceDesc').value = '';
-            document.getElementById('newServiceImage').value = '';
-            document.getElementById('newServicePrice').value = '';
+            nameInput.value = '';
+            descInput.value = '';
+            imageInput.value = '';
             loadServices();
         })
         .catch(error => {
@@ -363,4 +382,156 @@ function renderCustomers(customers) {
         `;
         tbody.appendChild(row);
     });
+}
+
+function loadReviewsStats() {
+    fetch(`${API_BASE_URL}/services`)
+        .then(res => res.json())
+        .then(services => {
+            // نجيب إحصائيات التقييم لكل خدمة بالتوازي
+            const promises = services.map(service =>
+                fetch(`${API_BASE_URL}/reviews?service_id=${service.id}`)
+                    .then(res => res.json())
+                    .then(data => ({
+                        name: service.name,
+                        average: data.average_rating,
+                        total: data.total_reviews,
+                    }))
+            );
+
+            Promise.all(promises).then(renderReviewsStats);
+        })
+        .catch(() => {
+            document.getElementById('reviewsTableBody').innerHTML =
+                '<tr><td colspan="3" class="empty-msg">حدث خطأ أثناء تحميل الإحصائيات</td></tr>';
+        });
+}
+
+function renderReviewsStats(stats) {
+    const tbody = document.getElementById('reviewsTableBody');
+    tbody.innerHTML = '';
+
+    stats.forEach(stat => {
+        const row = document.createElement('tr');
+        const ratingDisplay = stat.average
+            ? `⭐ ${stat.average} / 5`
+            : `<span class="price-tbd">لا توجد تقييمات بعد</span>`;
+
+        row.innerHTML = `
+            <td>${stat.name}</td>
+            <td>${ratingDisplay}</td>
+            <td>${stat.total}</td>
+        `;
+        tbody.appendChild(row);
+    });
+}
+
+/* ============ الكوبونات ============ */
+
+function loadCoupons() {
+    authFetch(`${API_BASE_URL}/admin/coupons`)
+        .then(res => res.json())
+        .then(coupons => renderCoupons(coupons))
+        .catch(() => {
+            document.getElementById('couponsTableBody').innerHTML =
+                '<tr><td colspan="9" class="empty-msg">حدث خطأ أثناء تحميل الكوبونات</td></tr>';
+        });
+}
+
+function renderCoupons(coupons) {
+    const tbody = document.getElementById('couponsTableBody');
+
+    if (!coupons || coupons.length === 0) {
+        tbody.innerHTML = '<tr><td colspan="9" class="empty-msg">لا توجد كوبونات مضافة</td></tr>';
+        return;
+    }
+
+    tbody.innerHTML = '';
+
+    coupons.forEach((coupon, index) => {
+        const typeText = coupon.type === 'percentage' ? 'نسبة مئوية' : 'مبلغ ثابت';
+        const valueText = coupon.type === 'percentage' ? `${coupon.value}%` : `${coupon.value} ل.س`;
+        const usesText = coupon.max_uses ? `${coupon.used_count} / ${coupon.max_uses}` : `${coupon.used_count} / ∞`;
+        const expiresText = coupon.expires_at ? new Date(coupon.expires_at).toLocaleString('ar-EG') : 'غير محدد';
+        const statusBadge = coupon.is_active ? '✅ مفعل' : '❌ غير مفعل';
+
+        const row = document.createElement('tr');
+        row.innerHTML = `
+            <td>${index + 1}</td>
+            <td><strong>${coupon.code}</strong></td>
+            <td>${typeText}</td>
+            <td>${valueText}</td>
+            <td>${coupon.min_order_amount ? coupon.min_order_amount + ' ل.س' : 'لا يوجد'}</td>
+            <td>${usesText}</td>
+            <td>${statusBadge}</td>
+            <td>${expiresText}</td>
+            <td>
+                <button class="small-btn delete" data-id="${coupon.id}">حذف</button>
+            </td>
+        `;
+        tbody.appendChild(row);
+    });
+
+    document.querySelectorAll('#couponsTableBody .small-btn.delete').forEach(btn => {
+        btn.addEventListener('click', function () {
+            deleteCoupon(this.dataset.id);
+        });
+    });
+}
+
+function addCoupon() {
+    const data = {
+        code: document.getElementById('newCouponCode').value.trim(),
+        type: document.getElementById('newCouponType').value,
+        value: document.getElementById('newCouponValue').value,
+        min_order_amount: document.getElementById('newCouponMinOrder').value || 0,
+        max_uses: document.getElementById('newCouponMaxUses').value || null,
+        expires_at: document.getElementById('newCouponExpiresAt').value || null,
+        is_active: true
+    };
+
+    if (!data.code || !data.value) {
+        alert('الرجاء إدخال رمز الكوبون وقيمته');
+        return;
+    }
+
+    authFetch(`${API_BASE_URL}/admin/coupons`, {
+        method: 'POST',
+        body: JSON.stringify(data),
+    })
+        .then(async res => {
+            const result = await res.json();
+            if (!res.ok) throw result;
+            return result;
+        })
+        .then(() => {
+            alert('تم إضافة الكوبون بنجاح');
+            // تفريغ الحقول
+            document.getElementById('newCouponCode').value = '';
+            document.getElementById('newCouponValue').value = '';
+            document.getElementById('newCouponMinOrder').value = '';
+            document.getElementById('newCouponMaxUses').value = '';
+            document.getElementById('newCouponExpiresAt').value = '';
+            loadCoupons();
+        })
+        .catch(error => {
+            alert(error.message || 'حدث خطأ أثناء إضافة الكوبون');
+        });
+}
+
+function deleteCoupon(couponId) {
+    if (!confirm('هل أنت متأكد من حذف هذا الكوبون؟')) return;
+
+    authFetch(`${API_BASE_URL}/admin/coupons/${couponId}`, {
+        method: 'DELETE',
+    })
+        .then(async res => {
+            const result = await res.json();
+            if (!res.ok) throw result;
+            return result;
+        })
+        .then(() => loadCoupons())
+        .catch(error => {
+            alert(error.message || 'حدث خطأ أثناء حذف الكوبون');
+        });
 }

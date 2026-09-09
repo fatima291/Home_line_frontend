@@ -14,7 +14,10 @@ document.addEventListener('DOMContentLoaded', function () {
         paymentSelected = false;
 
         const cashCard = document.querySelector('.payment-method[data-value="cash"]');
-        cashCard.classList.add('cash-only-highlight');
+        if (cashCard) {
+            cashCard.classList.remove('active'); // ✅ إزالة الأزرق عند التحميل
+            cashCard.classList.add('cash-only-highlight');
+        }
     }
 
     const pendingRaw = localStorage.getItem('pending_booking');

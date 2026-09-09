@@ -9,6 +9,7 @@ let allServices = []; // نخزن كل الخدمات هون حتى نقدر ن�
 
 document.addEventListener('DOMContentLoaded', () => {
     fetchServices();
+    fetchPublicCoupons();
     setupAuthButton();
     setupSearch();
 });
@@ -46,6 +47,95 @@ setInterval(() => {
         behavior: 'smooth',
     });
 }, 3000);
+
+/* =========================================
+   جلب وعرض الكوبونات الديناميكية
+========================================= */
+
+function fetchPublicCoupons() {
+    fetch(`${API_BASE_URL}/coupons`)
+        .then(response => {
+            if (!response.ok) throw new Error('فشل تحميل الكوبونات');
+            return response.json();
+        })
+        .then(coupons => {
+            const slider = document.querySelector('.offers-slider');
+            if (!slider) return;
+
+            const activeCoupons = coupons.filter(c => c.is_active);
+
+            if (activeCoupons.length === 0) {
+                document.querySelector('.offers').style.display = 'none';
+                return;
+            }
+
+            document.querySelector('.offers').style.display = 'block';
+            slider.innerHTML = ''; 
+
+            // الألوان المتاحة في ملف الـ CSS لتتناوب عليها الكوبونات مهما كان عددها
+            const cardStyles = ['', 'coupon-blue', 'coupon-light'];
+
+            activeCoupons.forEach((coupon, index) => {
+                // تدوير الألوان المتاحة على الكوبونات تلقائياً
+                const colorClass = cardStyles[index % cardStyles.length];
+
+                // صياغة تفاصيل القيمة والوصف بناءً على نوع وقيمة الكوبون المضاف في الباك إند
+                const isPercentage = coupon.type === 'percentage';
+                const discountDisplay = isPercentage
+                    ? `<strong>${Math.round(coupon.value)}</strong><span>%</span>`
+                    : `<strong>${Math.round(coupon.value)}</strong><span>ل.س</span>`;
+
+                let titleText = '';
+                let descriptionText = '';
+
+                if (isPercentage) {
+                    titleText = 'خصم على خدمات المنزل';
+                    descriptionText = `احصلي على خصم ${Math.round(coupon.value)}% عند استخدام الكود`;
+                } else {
+                    titleText = 'خصم مباشر على الحجز';
+                    descriptionText = `خصم ${Math.round(coupon.value)} ل.س عند استخدام الكود`;
+                }
+
+                if (coupon.min_order_amount > 0) {
+                    descriptionText += ` (للطلبات من ${coupon.min_order_amount} ل.س وأكثر)`;
+                }
+
+                const card = document.createElement('article');
+                card.className = `coupon-card ${colorClass}`.trim();
+
+                card.innerHTML = `
+                    <div class="coupon-main">
+                        <span class="coupon-badge">عرض خاص</span>
+
+                        <div class="coupon-discount ${!isPercentage ? 'fixed' : ''}">
+                            ${discountDisplay}
+                        </div>
+
+                        <div class="coupon-title">${titleText}</div>
+
+                        <p class="coupon-description">
+                            ${descriptionText}
+                        </p>
+                    </div>
+
+                    <div class="coupon-side">
+                        <span class="coupon-label">كود الخصم</span>
+                        <strong class="coupon-code">${coupon.code}</strong>
+                        <button class="copy-coupon" type="button" onclick="copyCode('${coupon.code}')">
+                            <i class="fa-regular fa-copy"></i>
+                            نسخ الكود
+                        </button>
+                    </div>
+                `;
+
+                slider.appendChild(card);
+            });
+
+        })
+        .catch(error => {
+            console.error('خطأ بجلب الكوبونات:', error);
+        });
+}
 
 /* =========================================
    جلب وعرض الخدمات من الـ API
@@ -223,4 +313,42 @@ function setupAuthButton() {
         authBtn.textContent = 'تسجيل الدخول';
         authBtn.href = 'html/login.html';
     }
+}
+
+/* =========================================
+   دالة نسخ الكود 
+========================================= */
+
+function copyCode(code) {
+    navigator.clipboard.writeText(code).then(() => {
+        // إنشاء عنصر التنبيه النصي العائم
+        const toast = document.createElement('div');
+        toast.textContent = `تم نسخ كود الخصم: ${code}`;
+        
+        Object.assign(toast.style, {
+            position: 'fixed',
+            bottom: '30px',
+            left: '50%',
+            transform: 'translateX(-50%)',
+            backgroundColor: '#0b3c5d',
+            color: '#ffffff',
+            padding: '12px 24px',
+            borderRadius: '8px',
+            fontSize: '14px',
+            fontFamily: "'Cairo', sans-serif",
+            boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
+            zIndex: '9999',
+            transition: 'opacity 0.3s ease'
+        });
+
+        document.body.appendChild(toast);
+
+        // إخفاء وحذف التنبيه تلقائياً بعد ثانيتين دون المطالبة بـ OK
+        setTimeout(() => {
+            toast.style.opacity = '0';
+            setTimeout(() => toast.remove(), 300);
+        }, 2000);
+    }).catch(err => {
+        console.error('فشل النسخ:', err);
+    });
 }

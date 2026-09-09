@@ -12,17 +12,21 @@
     border-radius: 14px;
     cursor: pointer;
     transition: 0.25s;
+    transition: all 0.25s ease;
     background: #fff;
 }
 
 .payment-icon {
     font-size: 32px;
+    color: #0B3C5D; 
+    transition: color 0.25s ease;
 }
 
 .payment-title {
     font-weight: bold;
     font-size: 16px;
     color: #333;
+    transition: color 0.25s ease;
 }
 
 .payment-options-grid .option-card:hover {
@@ -31,14 +35,18 @@
 }
 
 .payment-options-grid .option-card.active {
-    background: #0B3C5D;
-    border-color: #0B3C5D;
+    background: #0B3C5D !important;
+    border-color: #0B3C5D !important;
+    box-shadow: 0 8px 20px rgba(11, 60, 93, 0.25);
 }
 
-.payment-options-grid .option-card.active .payment-title {
-    color: #fff;
+.payment-options-grid .option-card.active .payment-title,
+.payment-options-grid .option-card.active .payment-icon{
+    color: #ffffff !important;
 }
-
+.payment-options-grid .option-card.active.cash-only-highlight {
+    animation: none;
+}
 .cash-only-highlight {
     animation: gentle-pulse 1.5s infinite;
 }

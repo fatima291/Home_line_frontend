@@ -304,13 +304,6 @@ body {
     transition: .3s;
 }
 
-
-.profile-icon {
-    background: var(--navy);
-    color: white;
-}
-
-
 .profile-icon:hover {
     background: var(--blue);
     transform: translateY(-2px);
@@ -1451,7 +1444,7 @@ body {
     bottom: 22px;
     left: 22px;
 
-    z-index: 4;
+    z-index: 10;
 
     background: rgba(255, 255, 255, .97);
 
@@ -1476,13 +1469,13 @@ body {
     transition: opacity .35s ease, transform .35s ease;
 }
 
-
+/* 
 .service-card:hover .service-rating {
     opacity: 0;
     transform: translateY(8px);
     pointer-events: none;
 }
-
+ */
 
 .service-rating .rating-stars {
     color: #f5b301;
@@ -1500,7 +1493,7 @@ body {
     top: 18px;
     left: 18px;
 
-    z-index: 5;
+    z-index: 10;
 
     background: rgba(255, 255, 255, .95);
 

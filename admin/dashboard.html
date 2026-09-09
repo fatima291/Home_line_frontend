@@ -21,6 +21,8 @@
             <button class="tab-btn active" data-tab="bookings">الحجوزات</button>
             <button class="tab-btn" data-tab="services">الخدمات</button>
             <button class="tab-btn" data-tab="customers">العملاء</button>
+            <button class="tab-btn" data-tab="coupons">الكوبونات</button>
+            <button class="tab-btn" data-tab="reviews">التقييمات</button>
         </div>
 
         <!-- تبويب الحجوزات -->
@@ -64,10 +66,8 @@
                         <input type="text" id="newServiceName">
                     </div>
                     <div>
-                        <label>مسار الصورة</label>
-                        <input type="text" id="newServiceImage" placeholder="imegs/example.jfif">
-
-                        <input type="number" id="newServicePrice" placeholder="السعر (ل.س)">
+                        <label>صورة الخدمة</label>
+                        <input type="file" id="newServiceImage" accept="image/*">
                     </div>
                     <div class="full-width">
                         <label>الوصف</label>
@@ -82,7 +82,6 @@
                             <th>#</th>
                             <th>الاسم</th>
                             <th>الوصف</th>
-                            <th>السعر</th>
                             <th></th>
                         </tr>
                     </thead>
@@ -112,6 +111,73 @@
 
     </div>
 
+    <!-- تبويب الكوبونات -->
+    <div class="tab-content" id="tab-coupons">
+        <div class="section-box">
+            <h2 style="color:#0B3C5D; margin-bottom:15px;">إضافة كوبون جديد</h2>
+            <div class="service-form">
+                <div>
+                    <label>رمز الكوبون (Code)</label>
+                    <input type="text" id="newCouponCode" placeholder="مثال: SUMMER20">
+                </div>
+                <div>
+                    <label>نوع الخصم</label>
+                    <select id="newCouponType">
+                        <option value="percentage">نسبة مئوية (%)</option>
+                        <option value="fixed">مبلغ ثابت (ل.س)</option>
+                    </select>
+                </div>
+                <div>
+                    <label>قيمة الخصم</label>
+                    <input type="number" id="newCouponValue" placeholder="مثال: 20 أو 5000">
+                </div>
+                <div>
+                    <label>الحد الأدنى للطلب (اختياري)</label>
+                    <input type="number" id="newCouponMinOrder" placeholder="0">
+                </div>
+                <div>
+                    <label>أقصى عدد استخدامات (اختياري)</label>
+                    <input type="number" id="newCouponMaxUses" placeholder="بدون حد">
+                </div>
+                <div>
+                    <label>تاريخ الانتهاء (اختياري)</label>
+                    <input type="datetime-local" id="newCouponExpiresAt">
+                </div>
+                <button class="add-service-btn" id="addCouponBtn" style="margin-top: 15px;">إضافة الكوبون</button>
+            </div>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>الكود</th>
+                        <th>النوع</th>
+                        <th>القيمة</th>
+                        <th>الحد الأدنى</th>
+                        <th>الاستخدامات</th>
+                        <th>الحالة</th>
+                        <th>تاريخ الانتهاء</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody id="couponsTableBody"></tbody>
+            </table>
+        </div>
+    </div>
+    <div class="tab-content" id="tab-reviews">
+        <div class="section-box">
+            <table>
+                <thead>
+                    <tr>
+                        <th>الخدمة</th>
+                        <th>متوسط التقييم</th>
+                        <th>عدد المراجعات</th>
+                    </tr>
+                </thead>
+                <tbody id="reviewsTableBody"></tbody>
+            </table>
+        </div>
+    </div>
     <script src="js/dashboard.js"></script>
 </body>
 
