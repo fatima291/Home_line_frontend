@@ -12,15 +12,13 @@ const statusLabels = {
 };
 
 function authFetch(url, options = {}) {
-    return fetch(url, {
-        ...options,
-        headers: {
-            'Authorization': `Bearer ${token}`,
-            'Accept': 'application/json',
-            ...(options.headers || {}),
-        },
-    });
-    if (!(options.body instanceof FormData)) {
+    const headers = {
+        'Authorization': `Bearer ${token}`,
+        'Accept': 'application/json',
+        ...(options.headers || {}),
+    };
+
+    if (options.body && !(options.body instanceof FormData)) {
         headers['Content-Type'] = 'application/json';
     }
 
@@ -28,7 +26,6 @@ function authFetch(url, options = {}) {
         ...options,
         headers,
     });
-
 }
 
 document.addEventListener('DOMContentLoaded', () => {

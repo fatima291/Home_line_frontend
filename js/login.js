@@ -2,7 +2,33 @@ document.addEventListener('DOMContentLoaded', function () {
     const API_BASE_URL = 'http://127.0.0.1:8000/api';
     const loginBtn = document.getElementById('loginBtn');
     const errorBox = document.getElementById('errorBox');
+    const toggleButtons = document.querySelectorAll('.toggle-password');
 
+    toggleButtons.forEach(button => {
+        button.addEventListener('click', function (e) {
+            e.preventDefault(); // منع أي سلوك افتراضي للزر
+            
+            // جلب الـ id الخاص بالحقل من خاصية data-target أو إيجاد الحقل المجاور
+            const targetId = this.getAttribute('data-target');
+            const input = targetId ? document.getElementById(targetId) : this.parentElement.querySelector('input');
+
+            if (!input) return;
+
+            const eyeOpen = this.querySelector('.eye-open');
+            const eyeClosed = this.querySelector('.eye-closed');
+
+            if (input.type === 'password') {
+                input.type = 'text';
+                if (eyeOpen) eyeOpen.style.display = 'none';
+                if (eyeClosed) eyeClosed.style.display = 'block';
+            } else {
+                input.type = 'password';
+                if (eyeOpen) eyeOpen.style.display = 'block';
+                if (eyeClosed) eyeClosed.style.display = 'none';
+            }
+        });
+    });
+    
     if (loginBtn) {
         loginBtn.addEventListener('click', function () {
             errorBox.style.display = 'none';
@@ -50,6 +76,24 @@ document.addEventListener('DOMContentLoaded', function () {
                     loginBtn.textContent = 'تسجيل الدخول';
                 });
         });
+    }
+
+    function togglePasswordVisibility(inputId, btn) {
+        const input = document.getElementById(inputId);
+        if (!input) return;
+
+        const eyeOpen = btn.querySelector('.eye-open');
+        const eyeClosed = btn.querySelector('.eye-closed');
+
+        if (input.type === 'password') {
+            input.type = 'text';
+            eyeOpen.style.display = 'none';
+            eyeClosed.style.display = 'block';
+        } else {
+            input.type = 'password';
+            eyeOpen.style.display = 'block';
+            eyeClosed.style.display = 'none';
+        }
     }
 
     function tryAdminLogin(username, password) {

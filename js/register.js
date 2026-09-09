@@ -3,7 +3,33 @@ document.addEventListener('DOMContentLoaded', function () {
     const registerBtn = document.getElementById('registerBtn');
     const citySelect = document.getElementById('city');
     const neighborhoodSelect = document.getElementById('neighborhood');
+    const toggleButtons = document.querySelectorAll('.toggle-password');
 
+    toggleButtons.forEach(button => {
+        button.addEventListener('click', function (e) {
+            e.preventDefault(); // منع أي سلوك افتراضي للزر
+            
+            // جلب الـ id الخاص بالحقل من خاصية data-target أو إيجاد الحقل المجاور
+            const targetId = this.getAttribute('data-target');
+            const input = targetId ? document.getElementById(targetId) : this.parentElement.querySelector('input');
+
+            if (!input) return;
+
+            const eyeOpen = this.querySelector('.eye-open');
+            const eyeClosed = this.querySelector('.eye-closed');
+
+            if (input.type === 'password') {
+                input.type = 'text';
+                if (eyeOpen) eyeOpen.style.display = 'none';
+                if (eyeClosed) eyeClosed.style.display = 'block';
+            } else {
+                input.type = 'password';
+                if (eyeOpen) eyeOpen.style.display = 'block';
+                if (eyeClosed) eyeClosed.style.display = 'none';
+            }
+        });
+    });
+    
     // قائمة المحافظات والأحياء التابعة لها في سوريا
     const syriaData = {
         "دمشق": ["المزة", "كفرسوسة", "المالكي", "أبو رمانة", "الميدان", "دمر", "الشارع المستقيم", "الركن الدين"],
@@ -62,6 +88,23 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
+    function togglePasswordVisibility(inputId, btn) {
+        const input = document.getElementById(inputId);
+        if (!input) return;
+
+        const eyeOpen = btn.querySelector('.eye-open');
+        const eyeClosed = btn.querySelector('.eye-closed');
+
+        if (input.type === 'password') {
+            input.type = 'text';
+            if (eyeOpen) eyeOpen.style.display = 'none';
+            if (eyeClosed) eyeClosed.style.display = 'inline-block';
+        } else {
+            input.type = 'password';
+            if (eyeOpen) eyeOpen.style.display = 'inline-block';
+            if (eyeClosed) eyeClosed.style.display = 'none';
+        }
+    }
     if (registerBtn) {
         registerBtn.addEventListener('click', function () {
             clearErrors();
