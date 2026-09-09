@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>احجز الآن - Home Line</title>
+<link rel="stylesheet" href="../css/booking.css">
+<link rel="stylesheet" href="../css/translate.css">
+</head>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-messaging-compat.js"></script>
+<script src="../js/push-notifications.js"></script>
+<script src="../js/booking.js"></script>
+<script src="../js/translate.js"></script>
+<script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+<body>
+
+<div class="container">
+
+    <h1>احجز خدمتك الآن</h1>
+
+    <p class="subtitle">
+        اختر الخدمة المناسبة لك وسيتم تحويلك لصفحة الحجز مباشرة
+    </p>
+
+    <div class="services">
+
+        <div class="card">
+            <div>
+                <h3>🏠 التنظيف المنزلي</h3>
+                <p>خدمات تنظيف شاملة للمنازل والشقق.</p>
+            </div>
+            <a href="cleaning.html" class="btn">احجز</a>
+        </div>
+
+        <div class="card">
+            <div>
+                <h3>❄️ تنظيف المكيفات</h3>
+                <p>تنظيف وصيانة المكيفات المنزلية بكفاءة عالية.</p>
+            </div>
+            <a href="ac-cleaning.html" class="btn">احجز</a>
+        </div>
+
+        <div class="card">
+            <div>
+                <h3>🎉 خدمة المناسبات</h3>
+                <p>التنظيم والضيافة في المناسبات والاحتفالات.</p>
+            </div>
+            <a href="event.html" class="btn">احجز</a>
+        </div>
+
+        <div class="card">
+            <div>
+                <h3>🐜 مكافحة الحشرات</h3>
+                <p>حلول فعالة وآمنة للتخلص من الحشرات.</p>
+            </div>
+            <a href="pest-control.html" class="btn">احجز</a>
+        </div>
+
+        <div class="card">
+            <div>
+                <h3>⚡ أعمال الكهرباء</h3>
+                <p>تركيب وصيانة وإصلاح الأعطال الكهربائية.</p>
+                <p> بعد تعبة البيانات يتم التواصل لتحديد الموعد والمعدات اللازمة </p>
+            </div>
+            <a href="#" onclick="goToBooking(5)" class="btn">احجز</a>
+        </div>
+
+        <div class="card">
+            <div>
+                <h3>🚿 أعمال السباكة</h3>
+                <p>إصلاح التسريبات وتركيب وصيانة الأدوات الصحية.</p>
+                <p> بعد تعبة البيانات يتم التواصل لتحديد الموعد والمعدات اللازمة </p>
+            </div>
+            <a href="#" onclick="goToBooking(6)" class="btn">احجز</a>
+        </div>
+
+    </div>
+
+    <a href="../homeline.html" class="home-btn">
+        العودة إلى الصفحة الرئيسية
+    </a>
+
+</div>
+
+
+</body>
+</html>

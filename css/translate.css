@@ -1,0 +1,119 @@
+/* ==============================
+   Google Translate
+============================== */
+
+#google_translate_element {
+    display: flex;
+    align-items: center;
+    height: 38px;
+}
+
+/* إخفاء عبارة Powered by Google */
+.goog-te-gadget {
+    font-size: 0 !important;
+    font-family: 'Cairo', sans-serif !important;
+}
+
+/* شكل زر اختيار اللغة */
+.goog-te-gadget .goog-te-combo {
+    height: 38px;
+    min-width: 105px;
+    padding: 0 12px;
+    border: 1px solid #0B3C5D;
+    border-radius: 20px;
+    background: #ffffff;
+    color: #0B3C5D;
+    font-family: 'Cairo', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+/* عند تمرير الماوس */
+.goog-te-gadget .goog-te-combo:hover {
+    background: #0B3C5D;
+    color: #ffffff;
+}
+
+/* عند الضغط */
+.goog-te-gadget .goog-te-combo:focus {
+    border-color: #2563EB;
+}
+
+
+/* إخفاء صندوق النص الأصلي والترجمة نهائياً بكافة أشكاله */
+.goog-tooltip,
+.goog-tooltip:hover,
+.goog-tooltip *,
+div.goog-tooltip,
+iframe.goog-tooltip,
+.goog-te-balloon-frame,
+#goog-gt-tt,
+#goog-gt-vt,
+.goog-te-ftab-frame {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+    height: 0 !important;
+    width: 0 !important;
+    pointer-events: none !important;
+}
+
+/* إلغاء تمييز النصوص والتأثيرات عند تحريك الماوس عليها */
+.goog-text-highlight,
+font[style*="background-color"],
+span[style*="background-color"] {
+    background-color: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+    -webkit-box-shadow: none !important;
+}
+
+/* منع تحول مؤشر الماوس وإلغاء أي أحداث تفاعلية على النصوص المترجمة */
+font, 
+.goog-text-highlight {
+    pointer-events: none !important;
+}
+/* إخفاء عنصر جوجل الافتراضي بالكامل عن الأنظار */
+#google_translate_element {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+}
+
+.translate-toggle-btn {
+    display: block;
+    margin: 30px auto 20px;
+    padding: 10px 24px;
+    background: #0B3C5D;
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    font-size: 14px;
+    cursor: pointer;
+}
+.translate-toggle-btn:hover {
+    background: #15527e;
+}
+/*إخفاء شريط جوجل العلوي */
+.goog-te-banner-frame,
+.goog-te-banner-frame.skiptranslate,
+iframe.goog-te-banner-frame {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+}
+
+body {
+    top: 0px !important;
+    position: static !important;
+}
+
+/* أحياناً جوجل بيحط الشريط بعنصر iframe منفصل بأول الصفحة */
+.skiptranslate iframe {
+    visibility: hidden !important;
+    height: 0 !important;
+    display: none !important;
+}

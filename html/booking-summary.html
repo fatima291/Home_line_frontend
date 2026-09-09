@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>ملخص الحجز | Home Line</title>
+        <link rel="stylesheet" href="../css/customer-info.css">
+        <link rel="stylesheet" href="../css/translate.css">
+    </head>
+    
+<script src="../js/booking-summary.js"></script>
+<script src="../js/translate.js"></script>
+<script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+<body>
+
+<div class="container">
+
+    <h1 class="page-title">ملخص الحجز</h1>
+    <p class="page-desc">راجعي بيانات حجزك قبل التأكيد النهائي</p>
+    
+    <div class="form-box">
+        <div class="summary-box" id="finalSummary"></div>
+
+        <!-- 🟢 قسم الكوبون 🟢 -->
+        <div class="coupon-section" style="margin: 15px 0; display: flex; flex-direction: column; gap: 8px;">
+            <label for="couponCode" style="font-weight: bold; font-size: 14px;">كود الخصم (إن وجد):</label>
+            <div style="display: flex; gap: 8px;">
+                <input type="text" id="couponCode" placeholder="أدخل كود الكوبون" style="flex: 1; padding: 8px; border: 1px solid #ccc; border-radius: 4px;">
+                <button type="button" id="applyCouponBtn" style="padding: 8px 15px; background-color: #0B3C5D; color: white; border: none; border-radius: 4px; cursor: pointer;">تطبيق</button>
+            </div>
+            <div id="couponMessage" style="font-size: 13px; font-weight: bold;"></div>
+        </div>
+
+        <button class="send-btn" id="confirmBookingBtn">تأكيد الحجز</button>
+    </div>
+
+</div>
+
+</body>
+</html>

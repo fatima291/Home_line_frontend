@@ -1,0 +1,441 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Cairo',sans-serif;
+}
+
+
+
+.cleaning-page{
+
+    width:90%;
+    max-width:1200px;
+    margin:40px auto;
+
+}
+
+.cleaning-page h1{
+
+    text-align:center;
+    color:#0B3C5D;
+    margin-bottom:10px;
+    font-size:34px;
+
+}
+
+.page-desc{
+
+    text-align:center;
+    color:#666;
+    margin-bottom:40px;
+    font-size:17px;
+
+}
+
+/* ============================= */
+
+.section{
+
+    margin-bottom:35px;
+
+}
+
+.section h2{
+
+    color:#0B3C5D;
+    margin-bottom:18px;
+    font-size:22px;
+
+}
+
+/* ============================= */
+
+.options-grid{
+
+    display:grid;
+    gap:15px;
+
+}
+
+.options-grid.two{
+
+    grid-template-columns:repeat(2,1fr);
+
+}
+
+.options-grid.three{
+
+    grid-template-columns:repeat(3,1fr);
+
+}
+
+.options-grid.four{
+
+    grid-template-columns:repeat(4,1fr);
+
+}
+
+.options-grid.days{
+
+    grid-template-columns:repeat(4,1fr);
+
+}
+
+/* =====================================
+   تصميم المستطيلات
+===================================== */
+
+.option-card{
+
+    background:#ffffff;
+
+    border:2px solid #d9d9d9;
+
+    border-radius:12px;
+
+    padding:18px;
+
+    text-align:center;
+
+    font-size:17px;
+
+    font-weight:600;
+
+    color:#333;
+
+    cursor:pointer;
+
+    user-select:none;
+
+}
+
+.option-card:hover{
+
+    border-color:#0B3C5D;
+
+}
+
+/* المستطيل المحدد */
+
+.option-card.active{
+
+    background:#0B3C5D;
+
+    color:#ffffff;
+
+    border-color:#0B3C5D;
+
+}
+
+
+/* ==============================
+   صندوق الملاحظة
+============================== */
+
+.period-note{
+
+    margin-top:15px;
+
+    background:#EEF5FB;
+
+    border-right:5px solid #0B3C5D;
+
+    padding:15px;
+
+    border-radius:10px;
+
+    color:#444;
+
+    line-height:1.8;
+
+    font-size:15px;
+
+}
+
+
+/* ==============================
+   اختيار التاريخ
+============================== */
+
+.date-input{
+
+    width:100%;
+
+    padding:14px;
+
+    border:2px solid #d9d9d9;
+
+    border-radius:10px;
+
+    font-size:16px;
+
+    outline:none;
+
+}
+
+.date-input:focus{
+
+    border-color:#0B3C5D;
+
+}
+
+
+/* ==============================
+   زر التأكيد
+============================== */
+
+.confirm-box{
+
+    margin-top:45px;
+
+}
+
+.confirm-btn{
+
+    width:100%;
+
+    padding:18px;
+
+    background:#0B3C5D;
+
+    color:#fff;
+
+    border:none;
+
+    border-radius:12px;
+
+    font-size:18px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+}
+
+.confirm-btn:hover{
+
+    background:#15527e;
+
+}
+
+/* =========================================
+   Cleaning Page Layout
+========================================= */
+
+.visit-section{
+
+    margin-top:35px;
+
+}
+
+#singleVisitSection{
+
+    display:block;
+
+}
+
+#multiVisitSection{
+
+    display:none;
+
+}
+
+
+/* =========================================
+   Header داخل الصفحة
+========================================= */
+
+.top-header{
+
+    width:100%;
+
+    background:#0B3C5D;
+
+    padding:18px 8%;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+}
+
+.top-header .logo a{
+
+    color:#fff;
+
+    text-decoration:none;
+
+    font-size:28px;
+
+    font-weight:bold;
+
+}
+
+.top-header nav ul{
+
+    display:flex;
+
+    list-style:none;
+
+    gap:30px;
+
+}
+
+.top-header nav ul li a{
+
+    color:#fff;
+
+    text-decoration:none;
+
+    font-size:17px;
+
+    font-weight:500;
+
+}
+
+.top-header nav ul li a:hover{
+
+    color:#d8e8f5;
+
+}
+
+
+/* =========================================
+   Container
+========================================= */
+
+.container{
+
+    width:100%;
+
+    max-width:1100px;
+
+    margin:auto;
+
+}
+
+
+/* =========================================
+   مسافات بين الأقسام
+========================================= */
+
+.section:not(:last-child){
+
+    margin-bottom:35px;
+
+}
+
+
+/* =========================================
+   إخفاء الملاحظات عند الحاجة
+========================================= */
+
+.period-note.hidden{
+
+    display:none;
+
+}
+
+
+/* =========================================
+   أيام الأسبوع
+========================================= */
+
+.options-grid.days .option-card{
+
+    min-height:60px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+}
+
+
+/* =========================================
+   Responsive
+========================================= */
+
+@media(max-width:992px){
+
+.options-grid.four{
+
+grid-template-columns:repeat(2,1fr);
+
+}
+
+.options-grid.days{
+
+grid-template-columns:repeat(2,1fr);
+
+}
+
+}
+
+@media(max-width:768px){
+
+.options-grid.two,
+.options-grid.three,
+.options-grid.four,
+.options-grid.days{
+
+grid-template-columns:1fr;
+
+}
+
+.cleaning-page{
+
+width:95%;
+
+}
+
+.top-header{
+
+flex-direction:column;
+
+gap:20px;
+
+}
+
+.top-header nav ul{
+
+flex-wrap:wrap;
+
+justify-content:center;
+
+gap:15px;
+
+}
+
+.cleaning-page h1{
+
+font-size:28px;
+
+}
+
+.section h2{
+
+font-size:20px;
+
+}
+
+.option-card{
+
+font-size:16px;
+
+padding:15px;
+
+}
+
+.confirm-btn{
+
+font-size:17px;
+
+}
+
+}

@@ -1,0 +1,60 @@
+```html
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+    
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <title>تقييمات الخدمة | Home Line</title>
+        
+        <link rel="stylesheet" href="../css/service-details.css">
+        <link rel="stylesheet" href="../css/translate.css">
+    </head>
+    
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-messaging-compat.js"></script>
+    <script src="../js/push-notifications.js"></script>
+    <script src="../js/service-details.js"></script>
+    <script src="../js/translate.js"></script>
+    <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+<body>
+
+    <div class="container">
+
+        <a href="../homeline.html" class="back-btn">
+            ← العودة إلى الصفحة الرئيسية
+        </a>
+
+        <div class="service-header">
+
+            <h1 id="serviceName">تقييمات الخدمة</h1>
+
+            <div class="rating-summary">
+
+                <span id="averageRating">0</span>
+
+                <span class="stars">★★★★★</span>
+
+                <span id="totalReviews">0 تقييم</span>
+
+            </div>
+
+        </div>
+
+        <div id="reviewsList" class="reviews-list">
+
+            <p class="loading">
+                جاري تحميل التقييمات...
+            </p>
+
+        </div>
+
+    </div>
+
+
+</body>
+
+</html>
+```

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>طريقة الدفع | Home Line</title>
+    <link rel="stylesheet" href="../css/customer-info.css">
+    <link rel="stylesheet" href="../css/payment.css">
+    <link rel="stylesheet" href="../css/translate.css">
+</head>
+
+<script src="../js/payment.js"></script>
+<script src="../js/translate.js"></script>
+<script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+<body>
+
+<div class="container">
+
+    <h1 class="page-title">طريقة الدفع</h1>
+    <p class="page-desc">اختاري طريقة إتمام الدفع</p>
+
+    <div class="form-box">
+
+        <div class="options-grid two payment-options-grid">
+            <div class="option-card payment-method active" data-value="cash">
+                <div class="payment-icon">💵</div>
+                <div class="payment-title">الدفع نقداً عند التنفيذ</div>
+            </div>
+            <div class="option-card payment-method" data-value="online">
+                <div class="payment-icon">💳</div>
+                <div class="payment-title">الدفع الإلكتروني الآن</div>
+            </div>
+        </div>
+
+        <div id="cardFields" style="display:none; margin-top:25px;">
+            <div class="input-group">
+                <label>رقم البطاقة</label>
+                <input type="text" id="cardNumber" maxlength="16" placeholder="16 رقم">
+            </div>
+            <div class="input-group">
+                <label>اسم حامل البطاقة</label>
+                <input type="text" id="cardHolder">
+            </div>
+            <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:10px;">
+                <div class="input-group">
+                    <label>شهر الانتهاء</label>
+                    <input type="text" id="expiryMonth" maxlength="2" placeholder="MM">
+                </div>
+                <div class="input-group">
+                    <label>سنة الانتهاء</label>
+                    <input type="text" id="expiryYear" maxlength="2" placeholder="YY">
+                </div>
+                <div class="input-group">
+                    <label>CVV</label>
+                    <input type="text" id="cvv" maxlength="3" placeholder="123">
+                </div>
+            </div>
+        </div>
+
+        <button class="send-btn" id="continueBtn">متابعة لمراجعة الحجز</button>
+
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,134 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Tahoma, sans-serif;
+}
+
+body {
+    background: #f5f7fa;
+}
+
+/* =========================================
+   1. الحاوية والعناوين
+========================================= */
+.container {
+    width: 90%;
+    max-width: 700px;
+    margin: 50px auto;
+}
+
+.page-title {
+    text-align: center;
+    color: #0B3C5D;
+    margin-bottom: 10px;
+    font-size: 34px;
+}
+
+.page-desc {
+    text-align: center;
+    color: #666;
+    margin-bottom: 40px;
+}
+
+/* =========================================
+   2. نموذج الإدخال الشبكي (Grid Form)
+========================================= */
+.form-box {
+    background: #fff;
+    padding: 35px;
+    border-radius: 15px;
+    box-shadow: 0 5px 18px rgba(0, 0, 0, .08);
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #333;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 14px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    font-size: 16px;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: #0B3C5D;
+}
+
+.row-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+/* =========================================
+   3. التنبيهات والأزرار
+========================================= */
+.error-msg {
+    color: #c0392b;
+    font-size: 14px;
+    margin-top: 6px;
+    display: none;
+}
+
+.submit-btn {
+    width: 100%;
+    margin-top: 15px;
+    padding: 16px;
+    background: #0B3C5D;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.submit-btn:hover {
+    background: #15527e;
+}
+
+.submit-btn:disabled {
+    background: #999;
+    cursor: not-allowed;
+}
+
+.switch-link {
+    text-align: center;
+    margin-top: 20px;
+    color: #555;
+}
+
+.switch-link a {
+    color: #0B3C5D;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+/* =========================================
+   4. التجاوب مع الجوال
+========================================= */
+@media(max-width: 768px) {
+    .row-2 {
+        grid-template-columns: 1fr;
+    }
+
+    .form-box {
+        padding: 20px;
+    }
+
+    .page-title {
+        font-size: 28px;
+    }
+}

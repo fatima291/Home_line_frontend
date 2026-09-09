@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+    
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>خدمة المناسبات | Home Line</title>
+        <link rel="stylesheet" href="../css/events.css">
+        <link rel="stylesheet" href="../css/translate.css">
+    </head>
+    
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-messaging-compat.js"></script>
+    <script src="../js/push-notifications.js"></script>
+    <script src="../js/events.js"></script>
+    <script src="../js/translate.js"></script>
+    <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+<body>
+
+    <header class="top-header">
+        <div class="logo">
+            <a href="#">HOME LINE</a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="../homeline.html">الرئيسية</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- بطاقة الخدمة -->
+    <div class="service-card">
+        <div class="service-image">
+            <img src="../imegs/ev.png" alt="خدمة المناسبات">
+        </div>
+
+        <div class="service-info">
+            <h2>خدمة المناسبات</h2>
+            <div class="title-line"></div>
+            <p class="service-desc">
+                نوفر مباشرات وعاملات محترفات للمناسبات والاجتماعات للاهتمام بضيوفكم وتقديم الضيافة بكل احترافية.
+            </p>
+
+            <p><strong>مهام خدمة المناسبات:</strong></p>
+
+            <ul class="service-list">
+                <li>تقديم الضيافة حسب الساعات المتفق عليها.</li>
+                <li>القيام بجميع أعمال الضيافة وإدارة المناسبات (يستثنى من ذلك الطبخ ورعاية الأطفال).</li>
+                <li>المحافظة على أسرار وخصوصية العميل.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- وقت بدء الخدمة -->
+    <div class="option-card">
+        <div class="option-info">
+            <div class="option-icon">🕒</div>
+            <div class="option-text">
+                <h3>وقت بدء الخدمة</h3>
+                <p>اختر الوقت المناسب لبدء الخدمة</p>
+            </div>
+        </div>
+
+        <div class="option-control">
+            <button type="button" id="minusTime" class="time-btn">-</button>
+            <span id="serviceTime">10:00 صباحاً</span>
+            <button type="button" id="plusTime" class="time-btn">+</button>
+        </div>
+    </div>
+
+    <!-- مدة الخدمة -->
+    <div class="option-card">
+        <div class="option-info">
+            <div class="option-icon">⏳</div>
+            <div class="option-text">
+                <h3>مدة الخدمة</h3>
+                <p>حدد عدد ساعات الخدمة</p>
+            </div>
+        </div>
+
+        <div class="option-control">
+            <button type="button" id="minusDuration" class="time-btn">-</button>
+            <span id="serviceDuration">4 ساعات</span>
+            <button type="button" id="plusDuration" class="time-btn">+</button>
+        </div>
+    </div>
+
+    <!-- عدد مقدمي الخدمة -->
+    <div class="option-card">
+        <div class="option-info">
+            <div class="option-icon">👥</div>
+            <div class="option-text">
+                <h3>عدد مقدمي الخدمة</h3>
+                <p>اختر عدد مقدمي الخدمة المناسب</p>
+            </div>
+        </div>
+
+        <div class="option-control">
+            <button type="button" id="minusWorkers" class="time-btn">-</button>
+            <span id="workersCount">2</span>
+            <button type="button" id="plusWorkers" class="time-btn">+</button>
+        </div>
+    </div>
+
+    <!-- ملخص السعر -->
+    <div class="price-box">
+        <div class="price-title">
+            <span>💰</span>
+            <h3>ملخص السعر (التكلفة متغيرة حسب المدخلات أعلاه)</h3>
+        </div>
+
+        <div class="price-content">
+            <span>السعر الإجمالي</span>
+            <span id="totalPrice">-- ل.س</span>
+        </div>
+    </div>
+
+    <div class="confirm-section">
+        <button type="button" class="confirm-btn">تأكيد الحجز</button>
+    </div>
+
+</body>
+
+</html>

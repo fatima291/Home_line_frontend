@@ -1,0 +1,142 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Tahoma, sans-serif;
+}
+
+body {
+    background: #f5f7fa;
+}
+
+/* =========================================
+   1. الحاوية والعناوين
+========================================= */
+.container {
+    width: 90%;
+    max-width: 450px;
+    margin: 80px auto;
+}
+
+.page-title {
+    text-align: center;
+    color: #0B3C5D;
+    margin-bottom: 10px;
+    font-size: 32px;
+}
+
+.page-desc {
+    text-align: center;
+    color: #666;
+    margin-bottom: 35px;
+}
+
+/* =========================================
+   2. نموذج الإدخال
+========================================= */
+.form-box {
+    background: #fff;
+    padding: 35px;
+    border-radius: 15px;
+    box-shadow: 0 5px 18px rgba(0, 0, 0, .08);
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #333;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 14px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    font-size: 16px;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: #0B3C5D;
+}
+
+/* =========================================
+   3. رسائل الخطأ والأزرار
+========================================= */
+.error-box {
+    background: #fdecea;
+    color: #c0392b;
+    padding: 12px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    display: none;
+    text-align: center;
+}
+
+.submit-btn {
+    width: 100%;
+    margin-top: 10px;
+    padding: 16px;
+    background: #0B3C5D;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.submit-btn:hover {
+    background: #15527e;
+}
+
+.submit-btn:disabled {
+    background: #999;
+    cursor: not-allowed;
+}
+
+.switch-link {
+    text-align: center;
+    margin-top: 20px;
+    color: #555;
+}
+
+.switch-link a {
+    color: #0B3C5D;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.forgot-password-link {
+    display: block;
+    width: fit-content;
+    margin: 12px auto 15px;
+    color: #0B3C5D;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.forgot-password-link:hover {
+    color: #1e88e5;
+    text-decoration: underline;
+}
+
+.success-msg {
+    background: #e6f4ea;
+    color: #1e7e34;
+    padding: 12px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    display: none;
+    text-align: center;
+}

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>حسابي | Home Line</title>
+    <link rel="stylesheet" href="../css/account.css">
+    <link rel="stylesheet" href="../css/translate.css">
+</head>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-messaging-compat.js"></script>
+<script src="../js/push-notifications.js"></script>
+<script src="../js/account.js"></script>
+<script src="../js/translate.js"></script>
+<script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+<body>
+
+    <div class="container">
+
+        <h1 class="page-title">حسابي</h1>
+
+        <!-- بيانات العميل -->
+        <div class="section-box">
+            <h2>البيانات الشخصية</h2>
+
+            <div class="success-msg" id="profileSuccessMsg">تم تحديث البيانات بنجاح</div>
+            <div class="avatar-section">
+                <img id="avatarPreview" src="../imegs/default-avatar.png" alt="الصورة الشخصية" class="avatar-img">
+                <div>
+                    <input type="file" id="avatarInput" accept="image/*" style="display:none;">
+                    <button type="button" id="changeAvatarBtn" class="avatar-btn">تغيير الصورة الشخصية</button>
+                    <p class="avatar-hint">JPG, PNG أو WEBP، بحد أقصى 5 ميغابايت</p>
+                </div>
+            </div>
+            <div class="info-grid">
+                <div class="input-group">
+                    <label>الاسم الكامل</label>
+                    <input type="text" id="fullName" disabled>
+                </div>
+                <div class="input-group">
+                    <label>اسم المستخدم</label>
+                    <input type="text" id="username" disabled>
+                </div>
+                <div class="input-group">
+                    <label>رقم الجوال</label>
+                    <input type="text" id="phone" disabled>
+                </div>
+                <div class="input-group">
+                    <label>البريد الإلكتروني</label>
+                    <input type="email" id="email" disabled>
+                </div>
+                <div class="input-group">
+                    <label>رقم الهوية الوطنية</label>
+                    <input type="text" id="nationalId" disabled>
+                </div>
+                <div class="input-group">
+                    <label>المدينة</label>
+                    <input type="text" id="city" disabled>
+                </div>
+                <div class="input-group">
+                    <label>الحي</label>
+                    <input type="text" id="neighborhood" disabled>
+                </div>
+                <div class="input-group">
+                    <label>الشارع</label>
+                    <input type="text" id="street" disabled>
+                </div>
+                <div class="input-group">
+                    <label>رقم المبنى</label>
+                    <input type="text" id="buildingNumber" disabled>
+                </div>
+                <div class="input-group">
+                    <label>رابط الموقع</label>
+                    <input type="text" id="locationLink" disabled>
+                </div>
+            </div>
+
+            <button class="edit-btn" id="editBtn">تعديل البيانات</button>
+            <button class="save-btn" id="saveBtn" style="display:none;">حفظ التعديلات</button>
+            <button class="cancel-btn" id="cancelBtn" style="display:none;">إلغاء</button>
+        </div>
+
+        <!-- سجل الحجوزات -->
+        <div class="section-box">
+            <h2>حجوزاتي</h2>
+            <div id="bookingsList">
+                <p class="empty-msg">جاري تحميل الحجوزات...</p>
+            </div>
+        </div>
+
+        <a href="../homeline.html" class="home-btn">العودة إلى الصفحة الرئيسية</a>
+
+        <button id="logoutBtn" class="logout-btn">تسجيل الخروج</button>
+    </div>
+
+</body>
+
+</html>

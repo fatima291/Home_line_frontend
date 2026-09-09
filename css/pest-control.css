@@ -1,0 +1,246 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Cairo', sans-serif;
+}
+
+/* =========================================
+   1. الهيدر (Header)
+========================================= */
+.top-header {
+    width: 100%;
+    background: #0B3C5D;
+    padding: 18px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.top-header .logo a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.top-header nav ul {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+.top-header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 17px;
+    font-weight: 500;
+}
+
+.top-header nav ul li a:hover {
+    color: #d8e8f5;
+}
+
+/* =========================================
+   2. قسم الصفحة والعنوان (Section & Title)
+========================================= */
+.pest-section {
+    width: 90%;
+    max-width: 1100px;
+    margin: 40px auto;
+}
+
+.title-box {
+    width: 90%;
+    max-width: 850px;
+    margin: 35px auto 40px;
+    background: linear-gradient(135deg, #105989, #1E5F8A);
+    color: #fff;
+    text-align: center;
+    padding: 28px;
+    border-radius: 18px;
+    box-shadow: 0 8px 18px rgba(28, 82, 117, 0.2);
+}
+
+.title-box h1 {
+    margin: 0;
+    font-size: 34px;
+    font-weight: bold;
+}
+
+.title-box p {
+    margin-top: 10px;
+    font-size: 16px;
+    color: #E6F4FF;
+}
+
+/* =========================================
+   3. شبكة بطاقات الخدمات (Services Grid & Card)
+========================================= */
+.services-grid {
+    background: #F2FAFF;
+    border-radius: 25px;
+    padding: 35px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+.service-card {
+    background: #fff;
+    border-radius: 18px;
+    padding: 30px 20px;
+    text-align: center;
+    transition: .3s;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, .08);
+    border: 2px solid transparent;
+}
+
+.service-card:hover {
+    transform: translateY(-6px);
+    border-color: #2F80ED;
+}
+
+.card-icon {
+    width: 60px;
+    height: 60px;
+    margin: auto;
+    margin-bottom: 18px;
+    background: #FFF4D8;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 28px;
+}
+
+.service-card h3 {
+    color: #0B3C5D;
+    font-size: 20px;
+    margin-bottom: 15px;
+    min-height: 50px;
+}
+
+.price {
+    display: block;
+    color: #1E88E5;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 22px;
+}
+
+.choose-service {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 18px;
+    font-size: 17px;
+    font-weight: bold;
+    color: #0B3C5D;
+    cursor: pointer;
+}
+
+.choose-service input {
+    width: 20px;
+    height: 20px;
+    accent-color: #0B3C5D;
+    cursor: pointer;
+}
+
+.choose-service span {
+    user-select: none;
+}
+
+.small-card {
+    width: 500px;
+    max-width: 90%;
+    margin: 25px auto;
+}
+
+/* =========================================
+   4. معلومات الوقت والتاريخ (Service Info Box)
+========================================= */
+.service-info-box {
+    width: 500px;
+    max-width: 90%;
+    margin: 35px auto;
+    background: #EEF8FF;
+    border-radius: 18px;
+    padding: 25px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, .08);
+}
+
+.service-info-box h3 {
+    color: #0B3C5D;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #0B3C5D;
+    font-weight: bold;
+}
+
+.custom-select,
+.date-input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #d7e4ef;
+    border-radius: 10px;
+    background: #fff;
+    font-size: 15px;
+    outline: none;
+}
+
+/* =========================================
+   5. قسم تأكيد الحجز (Confirmation Section)
+========================================= */
+.confirm-section {
+    width: 100%;
+    text-align: center;
+    margin: 35px 0 50px;
+}
+
+.confirm-btn {
+    width: 220px;
+    height: 50px;
+    background: #0B3C5D;
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.confirm-btn:hover {
+    background: #145985;
+}
+
+/* =========================================
+   6. التجاوب مع الجوال (Responsive)
+========================================= */
+@media(max-width: 768px) {
+    .top-header {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .top-header nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
+}

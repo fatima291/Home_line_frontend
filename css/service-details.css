@@ -1,0 +1,189 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Cairo', Tahoma, sans-serif;
+}
+
+body {
+    background: #F1F5F9;
+    color: #0F172A;
+    min-height: 100vh;
+}
+
+.container {
+    width: 90%;
+    max-width: 900px;
+    margin: 50px auto;
+}
+
+/* =========================
+   زر العودة
+========================= */
+
+.back-btn {
+    display: inline-block;
+    margin-bottom: 25px;
+    color: #0B3C5D;
+    text-decoration: none;
+    font-weight: 700;
+    transition: 0.3s;
+}
+
+.back-btn:hover {
+    color: #2563EB;
+}
+
+/* =========================
+   رأس الصفحة
+========================= */
+
+.service-header {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 35px;
+    text-align: center;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+    margin-bottom: 30px;
+}
+
+.service-header h1 {
+    color: #0B3C5D;
+    font-size: 32px;
+    margin-bottom: 20px;
+}
+
+.rating-summary {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    font-size: 18px;
+}
+
+.rating-summary .stars {
+    color: #f5b301;
+    font-size: 25px;
+    letter-spacing: 2px;
+}
+
+#averageRating {
+    color: #0B3C5D;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+#totalReviews {
+    color: #64748B;
+}
+
+/* =========================
+   قائمة التقييمات
+========================= */
+
+.reviews-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* =========================
+   بطاقة التقييم
+========================= */
+
+.review-card {
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 25px;
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.07);
+}
+
+.review-top {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.review-avatar {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    object-fit: cover;
+    background: #E2E8F0;
+}
+
+.review-user {
+    flex: 1;
+}
+
+.review-user h3 {
+    color: #0B3C5D;
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.review-stars {
+    color: #f5b301;
+    font-size: 18px;
+    letter-spacing: 2px;
+}
+
+.review-date {
+    color: #94A3B8;
+    font-size: 13px;
+}
+
+.review-comment {
+    color: #475569;
+    line-height: 1.9;
+    font-size: 16px;
+}
+
+/* =========================
+   رسائل
+========================= */
+
+.loading,
+.no-reviews,
+.error-message {
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 30px;
+    text-align: center;
+    color: #64748B;
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.06);
+}
+
+.error-message {
+    color: #c0392b;
+}
+
+/* =========================
+   Responsive
+========================= */
+
+@media (max-width: 600px) {
+
+    .container {
+        width: 94%;
+        margin: 30px auto;
+    }
+
+    .service-header {
+        padding: 25px 15px;
+    }
+
+    .service-header h1 {
+        font-size: 26px;
+    }
+
+    .rating-summary {
+        flex-wrap: wrap;
+    }
+
+    .review-card {
+        padding: 20px;
+    }
+}

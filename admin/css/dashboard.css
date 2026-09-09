@@ -1,0 +1,256 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Tahoma, sans-serif;
+}
+
+body {
+    background: #f5f7fa;
+}
+
+/* =========================================
+   1. شريط التنقل والأصل
+========================================= */
+.topbar {
+    background: #0B3C5D;
+    color: #fff;
+    padding: 18px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.topbar h1 {
+    font-size: 20px;
+}
+
+.logout-btn {
+    background: transparent;
+    border: 1px solid #fff;
+    color: #fff;
+    padding: 8px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.logout-btn:hover {
+    background: #fff;
+    color: #0B3C5D;
+}
+
+.container {
+    width: 95%;
+    max-width: 1200px;
+    margin: 30px auto;
+}
+
+/* =========================================
+   2. التبويبات (Tabs)
+========================================= */
+.tabs {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 25px;
+    border-bottom: 2px solid #ddd;
+}
+
+.tab-btn {
+    padding: 12px 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+    color: #777;
+    border-bottom: 3px solid transparent;
+}
+
+.tab-btn.active {
+    color: #0B3C5D;
+    border-bottom-color: #0B3C5D;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.section-box {
+    background: #fff;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 5px 18px rgba(0, 0, 0, .08);
+    margin-bottom: 20px;
+}
+
+/* =========================================
+   3. الجداول والفلاتر
+========================================= */
+.filters {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.filters select {
+    padding: 10px 15px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 12px;
+    text-align: right;
+    border-bottom: 1px solid #eee;
+    font-size: 14px;
+}
+
+th {
+    background: #f5f7fa;
+    color: #0B3C5D;
+}
+
+.status-select {
+    padding: 6px 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 13px;
+}
+
+.status-pending { color: #856404; font-weight: bold; }
+.status-confirmed { color: #0c5460; font-weight: bold; }
+.status-completed { color: #155724; font-weight: bold; }
+.status-cancelled { color: #721c24; font-weight: bold; }
+
+.confirm-cash-btn {
+    background: #fff3cd;
+    color: #856404;
+    border: 1px solid #856404;
+    padding: 5px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 12px;
+    white-space: nowrap;
+}
+.confirm-cash-btn:hover { background: #856404; color: #fff; }
+
+.paid-badge { color: #1e7e34; font-weight: bold; font-size: 13px; }
+.unpaid-badge { color: #999; font-size: 12px; }
+
+.details-btn {
+    background: none;
+    border: 1px solid #0B3C5D;
+    color: #0B3C5D;
+    padding: 5px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.details-btn:hover {
+    background: #0B3C5D;
+    color: #fff;
+}
+
+.details-row td {
+    background: #f9fbfd;
+    font-size: 13px;
+    color: #555;
+}
+
+.details-row {
+    display: none;
+}
+
+.details-row.show {
+    display: table-row;
+}
+
+/* =========================================
+   4. نموذج إضافة خدمة
+========================================= */
+.service-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.service-form .full-width {
+    grid-column: 1 / -1;
+}
+
+.service-form label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+.service-form input,
+.service-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 14px;
+}
+
+.service-form textarea {
+    resize: none;
+    height: 70px;
+}
+
+.add-service-btn {
+    grid-column: 1 / -1;
+    padding: 12px;
+    background: #1e7e34;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.service-row-actions {
+    display: flex;
+    gap: 6px;
+}
+
+.small-btn {
+    padding: 5px 12px;
+    border-radius: 8px;
+    font-size: 12px;
+    border: none;
+    cursor: pointer;
+}
+
+.small-btn.edit {
+    background: #eaf2f8;
+    color: #0B3C5D;
+    border: 1px solid #0B3C5D;
+}
+
+.small-btn.delete {
+    background: #fdecea;
+    color: #c0392b;
+    border: 1px solid #c0392b;
+}
+
+.empty-msg {
+    text-align: center;
+    color: #777;
+    padding: 30px;
+}

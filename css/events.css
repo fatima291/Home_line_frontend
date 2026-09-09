@@ -1,0 +1,299 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Cairo', sans-serif;
+}
+
+/* =========================================
+   Header داخل الصفحة
+========================================= */
+.top-header {
+    width: 100%;
+    background: #0B3C5D;
+    padding: 18px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.top-header .logo a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.top-header nav ul {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+.top-header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 17px;
+    font-weight: 500;
+}
+
+.top-header nav ul li a:hover {
+    color: #d8e8f5;
+}
+
+/* =========================================
+   بطاقة الخدمة الرئيسية
+========================================= */
+.service-card {
+    width: 90%;
+    max-width: 950px;
+    margin: 35px auto;
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    background: linear-gradient(#ffffff, #f0efef, #d5e9f9);
+    border: 1px solid #d7e3ee;
+    border-right: 7px solid #0B3C5D;
+    border-radius: 18px;
+    padding: 25px;
+    box-shadow: 0 8px 18px rgba(11, 60, 93, .12);
+}
+
+.service-image {
+    width: 220px;
+}
+
+.service-image img {
+    width: 100%;
+    border-radius: 15px;
+    border: 4px solid #ffffff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, .12);
+}
+
+.service-info {
+    flex: 1;
+}
+
+.service-info h2 {
+    color: #0B3C5D;
+    font-size: 32px;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+.title-line {
+    width: 90px;
+    height: 5px;
+    background: #2F80ED;
+    border-radius: 50px;
+    margin-bottom: 18px;
+}
+
+.service-desc {
+    color: #555;
+    line-height: 1.8;
+    margin-bottom: 18px;
+}
+
+.service-list {
+    list-style: none;
+    padding: 0;
+}
+
+.service-list li {
+    background: #ffffff;
+    padding: 10px 15px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    border-right: 3px solid #2F80ED;
+    color: #444;
+    font-size: 15px;
+}
+
+.service-list li::before {
+    content: "✔";
+    color: #2F80ED;
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+/* =========================================
+   بطاقات الخيارات والتحكم
+========================================= */
+.option-card {
+    width: 700px;
+    max-width: 90%;
+    margin: 25px auto;
+    background: #d6e1f0a8;
+    border-radius: 16px;
+    border: 1px solid #dfe7ef;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, .08);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 18px 22px;
+}
+
+.option-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.option-icon {
+    width: 55px;
+    height: 55px;
+    background: #f7c948;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+}
+
+.option-text h3 {
+    margin: 0;
+    color: #0B3C5D;
+    font-size: 20px;
+}
+
+.option-text p {
+    margin-top: 5px;
+    color: #777;
+    font-size: 14px;
+}
+
+.option-control {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.time-btn {
+    width: 42px;
+    height: 42px;
+    border: none;
+    border-radius: 10px;
+    background: #0B3C5D;
+    color: #fff;
+    font-size: 22px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.time-btn:hover {
+    background: #1a567d;
+}
+
+#serviceTime,
+#serviceDuration,
+#workersCount {
+    min-width: 120px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+    color: #0B3C5D;
+}
+
+/* =========================================
+   ملخص السعر وزر التأكيد
+========================================= */
+.price-box {
+    width: 700px;
+    max-width: 90%;
+    margin: 30px auto;
+    background: #ffffff;
+    border-radius: 15px;
+    border: 1px solid #dfe7ef;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, .08);
+    overflow: hidden;
+}
+
+.price-title {
+    background: #0B3C5D;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 15px 20px;
+}
+
+.price-title h3 {
+    margin: 0;
+    font-size: 18px;
+}
+
+.price-title span {
+    font-size: 22px;
+}
+
+.price-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+#totalPrice {
+    color: #2F80ED;
+    font-size: 22px;
+}
+
+.confirm-section {
+    text-align: center;
+    margin: 40px 0;
+}
+
+.confirm-btn {
+    width: 260px;
+    height: 52px;
+    border: none;
+    border-radius: 12px;
+    background: #0B3C5D;
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.confirm-btn:hover {
+    background: #144f78;
+}
+
+/* =========================================
+   التجاوب مع الشاشات الصغيرة (Responsive)
+========================================= */
+@media(max-width: 768px) {
+    .top-header {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .top-header nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .service-card {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .title-line {
+        margin: 0 auto 18px auto;
+    }
+
+    .option-card {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+
+    .option-info {
+        flex-direction: column;
+    }
+}

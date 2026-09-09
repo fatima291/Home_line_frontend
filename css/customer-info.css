@@ -1,0 +1,180 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Cairo', Tahoma, sans-serif;
+}
+
+body {
+    background: #f5f7fa;
+}
+
+.container {
+    width: 90%;
+    max-width: 1000px;
+    margin: 50px auto;
+}
+
+.page-title {
+    text-align: center;
+    color: #0B3C5D;
+    margin-bottom: 10px;
+    font-size: 34px;
+}
+
+.page-desc {
+    text-align: center;
+    color: #666;
+    margin-bottom: 40px;
+}
+
+.self-booking-box {
+    background: #fff;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 5px 18px rgba(0, 0, 0, .08);
+    margin-bottom: 25px;
+    text-align: center;
+}
+.self-checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    font-size: 17px;
+    font-weight: bold;
+    color: #0B3C5D;
+    justify-content: center;
+}
+
+.self-checkbox-label input[type="checkbox"] {
+    display: none;
+}
+
+.custom-checkbox {
+    width: 26px;
+    height: 26px;
+    border: 2px solid #0B3C5D;
+    border-radius: 6px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.2s;
+}
+
+.self-checkbox-label input[type="checkbox"]:checked + .custom-checkbox {
+    background: #0B3C5D;
+}
+
+.self-checkbox-label input[type="checkbox"]:checked + .custom-checkbox::after {
+    content: '✓';
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.cancel-btn {
+    width: 100%;
+    margin-top: 12px;
+    padding: 14px;
+    background: #eee;
+    color: #333;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.form-box {
+    background: #fff;
+    padding: 35px;
+    border-radius: 15px;
+    box-shadow: 0 5px 18px rgba(0, 0, 0, .08);
+}
+
+.section {
+    margin-bottom: 35px;
+}
+
+.section h2 {
+    color: #0B3C5D;
+    margin-bottom: 20px;
+    font-size: 23px;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #333;
+}
+
+.input-group input,
+.input-group textarea {
+    width: 100%;
+    padding: 14px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    font-size: 16px;
+}
+
+textarea {
+    resize: none;
+    height: 130px;
+}
+
+.summary-box {
+    border: 2px solid #d8d8d8;
+    border-radius: 10px;
+    padding: 20px;
+    background: #f9fbfd;
+}
+
+.summary-box p {
+    margin-bottom: 12px;
+    color: #333;
+    font-size: 16px;
+}
+.option-card.payment-method.active {
+    background: #0B3C5D;
+    color: #fff;
+    border-color: #0B3C5D;
+}
+.send-btn {
+    width: 100%;
+    margin-top: 35px;
+    padding: 16px;
+    background: #0B3C5D;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.send-btn:hover {
+    background: #15527e;
+}
+
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+    }
+
+    .form-box {
+        padding: 20px;
+    }
+
+    .page-title {
+        font-size: 28px;
+    }
+
+    .section h2 {
+        font-size: 20px;
+    }
+}

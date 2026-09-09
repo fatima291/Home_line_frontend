@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لوحة التحكم | Home Line</title>
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+
+<body>
+
+    <div class="topbar">
+        <h1>لوحة تحكم Home Line</h1>
+        <button class="logout-btn" id="logoutBtn">تسجيل الخروج</button>
+    </div>
+
+    <div class="container">
+
+        <div class="tabs">
+            <button class="tab-btn active" data-tab="bookings">الحجوزات</button>
+            <button class="tab-btn" data-tab="services">الخدمات</button>
+            <button class="tab-btn" data-tab="customers">العملاء</button>
+        </div>
+
+        <!-- تبويب الحجوزات -->
+        <div class="tab-content active" id="tab-bookings">
+            <div class="section-box">
+                <div class="filters">
+                    <select id="statusFilter">
+                        <option value="">كل الحالات</option>
+                        <option value="pending">قيد الانتظار</option>
+                        <option value="confirmed">تأكيد</option>
+                        <option value="completed">مكتمل</option>
+                        <option value="cancelled">إلغاء</option>
+                    </select>
+                </div>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>الخدمة</th>
+                            <th>العميل</th>
+                            <th>الجوال</th>
+                            <th>التاريخ</th>
+                            <th>الحالة</th>
+                            <th>الدفع</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody id="bookingsTableBody"></tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- تبويب الخدمات -->
+        <div class="tab-content" id="tab-services">
+            <div class="section-box">
+                <h2 style="color:#0B3C5D; margin-bottom:15px;">إضافة خدمة جديدة</h2>
+                <div class="service-form">
+                    <div>
+                        <label>اسم الخدمة</label>
+                        <input type="text" id="newServiceName">
+                    </div>
+                    <div>
+                        <label>مسار الصورة</label>
+                        <input type="text" id="newServiceImage" placeholder="imegs/example.jfif">
+
+                        <input type="number" id="newServicePrice" placeholder="السعر (ل.س)">
+                    </div>
+                    <div class="full-width">
+                        <label>الوصف</label>
+                        <textarea id="newServiceDesc"></textarea>
+                    </div>
+                    <button class="add-service-btn" id="addServiceBtn">إضافة الخدمة</button>
+                </div>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>الاسم</th>
+                            <th>الوصف</th>
+                            <th>السعر</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody id="servicesTableBody"></tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- تبويب العملاء -->
+        <div class="tab-content" id="tab-customers">
+            <div class="section-box">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>الاسم الكامل</th>
+                            <th>اسم المستخدم</th>
+                            <th>الجوال</th>
+                            <th>المدينة</th>
+                            <th>تاريخ التسجيل</th>
+                        </tr>
+                    </thead>
+                    <tbody id="customersTableBody"></tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="js/dashboard.js"></script>
+</body>
+
+</html>

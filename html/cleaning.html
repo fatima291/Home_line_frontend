@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>التنظيف المنزلي | Home Line</title>
+    <link rel="stylesheet" href="../css/cleaning.css">
+    <link rel="stylesheet" href="../css/translate.css">
+
+</head>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-messaging-compat.js"></script>
+<script src="../js/push-notifications.js"></script>
+<script src="../js/cleaning.js"></script>
+<script src="../js/translate.js"></script>
+<script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+<body>
+
+<header class="top-header">
+    <div class="logo">
+        <a href="#">HOME LINE</a>
+    </div>
+    <nav>
+        <ul>
+            <li><a href="../homeline.html">الرئيسية</a></li>
+        </ul>
+    </nav>
+
+</header>
+
+<section class="cleaning-page">
+    <div class="container">
+        <h1>حجز خدمة التنظيف المنزلي</h1>
+        <p class="page-desc">
+            اختر تفاصيل الخدمة المناسبة لك ثم أكمل الحجز.
+        </p>
+
+        <!-- نوع الزيارة -->
+        <div class="section">
+            <h2>اختر نوع الزيارة</h2>
+            <div class="options-grid two">
+                <div class="option-card visit-type active" data-group="visitType" data-value="single">
+                    زيارة فردية
+                </div>
+                <div class="option-card visit-type" data-group="visitType" data-value="multi">
+                    زيارات متعددة
+                </div>
+            </div>
+        </div>
+
+        <!-- قسم الزيارة الفردية -->
+        <div id="singleVisitSection">
+            <div class="section">
+                <h2>اختر جنسية الكادر</h2>
+                <div class="options-grid three">
+                    <div class="option-card nationality active" data-group="nationality" data-value="philippines">فلبين</div>
+                    <div class="option-card nationality" data-group="nationality" data-value="indonesia">إندونيسيا</div>
+                    <div class="option-card nationality" data-group="nationality" data-value="syria">سوريا</div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>مدة الزيارة</h2>
+                <div class="options-grid two">
+                    <div class="option-card duration active" data-group="duration" data-value="4">4 ساعات</div>
+                    <div class="option-card duration" data-group="duration" data-value="8">8 ساعات</div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>عدد الكوادر في الزيارة</h2>
+                <div class="options-grid four">
+                    <div class="option-card workers active" data-group="workers" data-value="1">عاملة واحدة</div>
+                    <div class="option-card workers" data-group="workers" data-value="2">عاملتان</div>
+                    <div class="option-card workers" data-group="workers" data-value="3">3 عاملات</div>
+                    <div class="option-card workers" data-group="workers" data-value="4">4 عاملات</div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>فترة الزيارة</h2>
+                <div class="options-grid two">
+                    <div class="option-card period active" data-group="period" data-value="morning">صباحي</div>
+                    <div class="option-card period" data-group="period" data-value="evening">مسائي</div>
+                </div>
+                <div class="period-note" id="periodNote">
+                    تشمل هذه الفترة وصول العاملة إلى موقع الخدمة من الساعة 8:00 صباحاً إلى 10:00 صباحاً.
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>تحديد يوم الخدمة</h2>
+                <input type="date" id="serviceDate" class="date-input">
+            </div>
+        </div>
+
+        <!-- قسم الزيارات المتعددة -->
+        <div id="multiVisitSection" style="display:none;">
+            <div class="section">
+                <h2>اختر عدد الأشهر</h2>
+                <div class="options-grid three">
+                    <div class="option-card months active" data-group="months" data-value="1">شهر</div>
+                    <div class="option-card months" data-group="months" data-value="3">3 أشهر</div>
+                    <div class="option-card months" data-group="months" data-value="6">6 أشهر</div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>اختر جنسية الكادر</h2>
+                <div class="options-grid three">
+                    <div class="option-card nationality active" data-group="nationality" data-value="philippines">فلبين</div>
+                    <div class="option-card nationality" data-group="nationality" data-value="indonesia">إندونيسيا</div>
+                    <div class="option-card nationality" data-group="nationality" data-value="syria">سوريا</div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>مدة الزيارة</h2>
+                <div class="options-grid two">
+                    <div class="option-card duration active" data-group="duration" data-value="4">4 ساعات</div>
+                    <div class="option-card duration" data-group="duration" data-value="8">8 ساعات</div>
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>فترة الزيارة</h2>
+                <div class="options-grid two">
+                    <div class="option-card multi-period active" data-group="period" data-value="morning">صباحي</div>
+                    <div class="option-card multi-period" data-group="period" data-value="evening">مسائي</div>
+                </div>
+                <div class="period-note" id="multiPeriodNote">
+                    تشمل هذه الفترة وصول العاملة إلى موقع الخدمة من الساعة 8:00 صباحاً إلى 10:00 صباحاً.
+                </div>
+            </div>
+
+            <div class="section">
+                <h2>تحديد أيام الخدمة بالأسبوع</h2>
+                <div class="options-grid days">
+                    <div class="option-card day" data-day="sat">السبت</div>
+                    <div class="option-card day" data-day="sun">الأحد</div>
+                    <div class="option-card day" data-day="mon">الإثنين</div>
+                    <div class="option-card day" data-day="tue">الثلاثاء</div>
+                    <div class="option-card day" data-day="wed">الأربعاء</div>
+                    <div class="option-card day" data-day="thu">الخميس</div>
+                    <div class="option-card day" data-day="fri">الجمعة</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- زر التأكيد -->
+        <div class="confirm-box">
+            <button id="confirmCleaning" class="confirm-btn">تأكيد</button>
+        </div>
+    </div>
+</section>
+
+</body>
+</html>

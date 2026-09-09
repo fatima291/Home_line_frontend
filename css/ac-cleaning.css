@@ -1,0 +1,229 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Cairo', sans-serif;
+}
+
+/* =========================================
+   Header داخل الصفحة
+========================================= */
+.top-header {
+    width: 100%;
+    background: #0B3C5D;
+    padding: 18px 8%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.top-header .logo a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.top-header nav ul {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+.top-header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 17px;
+    font-weight: 500;
+}
+
+.top-header nav ul li a:hover {
+    color: #d8e8f5;
+}
+
+/* =========================================
+   بطاقة الخدمة الرئيسية
+========================================= */
+.service-card {
+    width: 90%;
+    max-width: 950px;
+    margin: 30px auto;
+    background: #edf5fb;
+    border-radius: 20px;
+    border-right: 8px solid #0B3C5D;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, .12);
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: space-between;
+    padding: 22px 30px;
+}
+
+.service-info {
+    width: 55%;
+}
+
+.service-info h1 {
+    color: #0B3C5D;
+    font-size: 38px;
+    margin-bottom: 30px;
+}
+
+.service-info p {
+    background: #ffffff;
+    padding: 15px;
+    margin-bottom: 18px;
+    border-radius: 10px;
+    font-size: 19px;
+    color: #333;
+    font-weight: bold;
+    border-right: 5px solid #2F80ED;
+}
+
+.service-image {
+    width: 30%;
+    text-align: left;
+}
+
+.service-image img {
+    width: 100%;
+    max-width: 360px;
+    border-radius: 18px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, .15);
+}
+
+/* =========================================
+   خيارات تنظيف المكيف
+========================================= */
+.service-options {
+    width: 90%;
+    max-width: 950px;
+    margin: 25px auto;
+}
+
+.service-box {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background: #fff;
+    border: 2px solid #d8e2ec;
+    border-radius: 15px;
+    padding: 20px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    transition: border-color 0.3s ease;
+}
+
+.service-box:hover {
+    border-color: #0B3C5D;
+}
+
+.service-box input {
+    width: 22px;
+    height: 22px;
+    cursor: pointer;
+}
+
+.service-text {
+    flex: 1;
+    text-align: right;
+    margin: 0 20px;
+}
+
+.service-text h3 {
+    color: #0B3C5D;
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.service-text span {
+    color: #777;
+    font-size: 15px;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.service-text p {
+    color: #2F80ED;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.service-number {
+    width: 48px;
+    height: 48px;
+    background: #0B3C5D;
+    color: #fff;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+/* =========================================
+   زر التأكيد
+========================================= */
+.confirm-btn {
+    width: 90%;
+    max-width: 950px;
+    margin: 30px auto;
+    display: block;
+    text-align: center;
+    background: #0B3C5D;
+    color: #fff;
+    border: none;
+    padding: 16px;
+    border-radius: 12px;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.confirm-btn:hover {
+    background: #15527e;
+}
+
+/* =========================================
+   التجاوب مع الشاشات الصغير (Responsive)
+========================================= */
+@media(max-width: 900px) {
+    .service-card {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .service-info {
+        width: 100%;
+        margin-bottom: 30px;
+    }
+
+    .service-image {
+        width: 100%;
+        text-align: center;
+    }
+
+    .service-image img {
+        max-width: 280px;
+    }
+
+    .service-info h1 {
+        font-size: 30px;
+    }
+}
+
+@media(max-width: 768px) {
+    .top-header {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .top-header nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+}

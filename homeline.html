@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Home Line</title>
+
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+   
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+  
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/translate.css">
+</head>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-messaging-compat.js"></script>
+<script src="js/push-notifications.js"></script>
+<script src="js/hl.js"></script>
+<script src="js/translate.js"></script>
+<script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+<body>
+
+    <!-- Navbar -->
+    <header>
+    <nav class="navbar">
+
+    <div class="logo">
+        <img src="imegs/log.png">
+    </div>
+
+    <ul class="nav-links">
+        <li><a href="#">الرئيسية</a></li>
+        <li><a href="#services">الخدمات</a></li>
+        <li><a href="#">لماذا نحن</a></li>
+    </ul>
+
+    <div class="nav-actions">
+            <a href="#" id="authBtn" class="btn-outline">
+                تسجيل الدخول
+            </a>
+        </div>
+
+        <a href="#" id="profileIcon" class="profile-icon">
+            <i class="fa-solid fa-user"></i>
+        </a>
+
+     </div>
+
+
+    
+    </header>
+
+   <section class="hero">
+
+    <div class="hero-content">
+        <h1>خطك الأول لخدمات المنزل</h1>
+        <p>لأن منزلك يستحق افضل رعاية ،يجمع هوم لاين نخبة من العمالة والفنيين الموثوقين لتقديم خدمات منزلية متكاملة باحترافية وامان . نسعى لتوفير حلول سريعة وفعالية تناسب احتياجاتك ، مع ضمان الجودة والاهتمام بأدق التفاصيل في كل خدمة نقدمها . </p>
+
+        <div class="hero-buttons">
+            <a href="html/booking.html" class="primary-btn">احجز الآن</a>
+            
+        </div>
+    </div>
+    
+
+   </section>
+
+<section class="offers">
+
+<div class="offers-heading">
+
+<h2>عروض مميزة لك</h2>
+
+<p>
+    استفيدي من خصوماتنا الحصرية على خدمات Home Line
+</p>
+
+
+</div>
+
+
+
+<div class="offers-slider">
+
+
+    <!-- COUPON 1 -->
+    <article class="coupon-card">
+
+        <div class="coupon-main">
+
+            <span class="coupon-badge">
+                عرض خاص
+            </span>
+
+            <div class="coupon-discount">
+                <strong>20</strong>
+                <span>%</span>
+            </div>
+
+            <div class="coupon-title">
+                خصم على خدمات المنزل
+            </div>
+
+            <p class="coupon-description">
+                احصلي على خصم 20% عند استخدام الكود
+            </p>
+
+        </div>
+
+
+        <div class="coupon-side">
+
+            <span class="coupon-label">
+                كود الخصم
+            </span>
+
+            <strong class="coupon-code">
+                WELCOME20
+            </strong>
+
+            <button class="copy-coupon" type="button">
+                <i class="fa-regular fa-copy"></i>
+                نسخ الكود
+            </button>
+
+        </div>
+
+    </article>
+
+
+
+    <!-- COUPON 2 -->
+    <article class="coupon-card coupon-blue">
+
+        <div class="coupon-main">
+
+            <span class="coupon-badge">
+                الأكثر طلبًا
+            </span>
+
+            <div class="coupon-discount fixed">
+                <strong>5000</strong>
+                <span>ل.س</span>
+            </div>
+
+            <div class="coupon-title">
+                خصم مباشر على الحجز
+            </div>
+
+            <p class="coupon-description">
+                خصم 5000 ل.س عند استخدام الكود
+            </p>
+
+        </div>
+
+
+        <div class="coupon-side">
+
+            <span class="coupon-label">
+                كود الخصم
+            </span>
+
+            <strong class="coupon-code">
+                SAVE5000
+            </strong>
+
+            <button class="copy-coupon" type="button">
+                <i class="fa-regular fa-copy"></i>
+                نسخ الكود
+            </button>
+
+        </div>
+
+    </article>
+
+
+
+    <!-- COUPON 3 -->
+    <article class="coupon-card coupon-light">
+
+        <div class="coupon-main">
+
+            <span class="coupon-badge">
+                لفترة محدودة
+            </span>
+
+            <div class="coupon-discount">
+                <strong>10</strong>
+                <span>%</span>
+            </div>
+
+            <div class="coupon-title">
+                خصم لأول حجز
+            </div>
+
+            <p class="coupon-description">
+                استخدمي الكود واحصلي على خصم 10%
+            </p>
+
+        </div>
+
+
+        <div class="coupon-side">
+
+            <span class="coupon-label">
+                كود الخصم
+            </span>
+
+            <strong class="coupon-code">
+                WELCOME10
+            </strong>
+
+            <button class="copy-coupon" type="button">
+                <i class="fa-regular fa-copy"></i>
+                نسخ الكود
+            </button>
+
+        </div>
+
+    </article>
+
+
+</div>
+
+
+</section>
+
+   <section class="services" id="services">
+
+    <h2 class="section-title">خدماتنا</h2>
+
+    <div class="search-box">
+        <input type="text" id="serviceSearch" placeholder="ابحث عن خدمة...">
+        <i class="fa-solid fa-magnifying-glass"></i>
+    </div>
+
+    <div class="services-grid" id="services-container">
+
+    </div>
+
+    <p id="noResultsMsg" style="display:none; text-align:center; color:#777; margin-top:20px;">
+        لا توجد نتائج مطابقة لبحثك
+    </p>
+   </section>
+
+
+
+   <section class="why-us" id="why-us">
+
+    <h2 class="section-title">لماذا تختار Home Line ؟</h2>
+
+    <div class="why-grid">
+
+        <div class="why-card">
+            <img src="imegs/y1.webp">
+            <h3>عمالة مدربة</h3>
+            <p>
+                فريقنا مدرب على أعلى معايير الجودة والأمان.
+            </p>
+        </div>
+
+        <div class="why-card">
+            <img src="imegs/y2.png">
+            <h3>تقنيات حديثة</h3>
+            <p>
+                نستخدم معدات وتقنيات احترافية للحصول على أفضل النتائج.
+            </p>
+        </div>
+
+        <div class="why-card">
+            <img src="imegs/y3.webp">
+            <h3>الالتزام بالمواعيد</h3>
+            <p>
+                نصل في الوقت المحدد وننجز العمل باحترافية.
+            </p>
+        </div>
+
+        <div class="why-card">
+            <img src="imegs/y4.webp">
+            <h3>رضا العملاء</h3>
+            <p>
+                رضا العميل هو أولويتنا في جميع الخدمات.
+            </p>
+        </div>
+
+    </div>
+
+  </section>
+
+  <footer class="footer">
+
+    <div class="footer-top">
+        <h2>HOME LINE</h2>
+        <p>خطك الأول لخدمات المنزل</p>
+    </div>
+
+    <div class="footer-content">
+
+        <div class="footer-column">
+            <h3>روابط أخرى</h3>
+
+            <a href="#">الأسئلة الشائعة</a>
+            <a href="#">الشروط والأحكام</a>
+        </div>
+
+        <div class="footer-column">
+            <h3>العنوان</h3>
+
+            <p>
+                دمشق  - الجمهورية العربية السورية 
+            </p>
+        </div>
+
+        <div class="footer-column">
+            <h3>تواصل معنا</h3>
+
+            <a href="#">Instagram : Home-Line</a>
+            <a href="#">Facebook : Home Line </a>
+            <a href="mailto:Homeline@info.com">
+                Homeline@info.com
+            </a>
+            <a href="tel:00963562876498">
+                00963562876498
+            </a>
+        </div>
+    </div>
+
+    <select id="customLanguageSelect" class="form-select" style="width: auto; display: inline-block;">
+        <option value="ar">العربية</option>
+        <option value="en">English</option>
+    </select>
+
+    <div id="google_translate_element" style="display: none !important;"></div>
+</footer>
+
+</body>
+</html>
